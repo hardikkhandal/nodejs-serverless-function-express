@@ -15,8 +15,8 @@
         const videoId = extractVideoId(videoUrl);
 
         const transcript = getTranscript(videoId, { timeout: 60000 });
-    const transcriptText = transcript.map((entry) => entry.text).join(" ");
-    console.log("Fetched transcript:", transcriptText);
+        const transcriptText = transcript.map((entry) => entry.text).join(" ");
+        console.log("Fetched transcript:", transcriptText);
 
         const prompt = `Summarize the video at the following URL: ${videoUrl}. Transcript: ${transcriptText} in few words`;
         // const summary = generateText("llama3-8b-8192", prompt);
