@@ -15,7 +15,7 @@
         const videoId = extractVideoId(videoUrl);
 
         // const transcript = getTranscript(videoId, { timeout: 60000 });
-        let transcriptText = YoutubeTranscript.fetchTranscript('videoId or URL').then(console.log);
+        let transcriptText = YoutubeTranscript.fetchTranscript(`${videoId}`).then(console.log);
         console.log("Fetched transcript:", transcriptText);
 
         const prompt = `Summarize the video at the following URL: ${videoUrl}. Transcript: ${transcriptText} in few words`;
