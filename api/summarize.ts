@@ -7,7 +7,7 @@
 
     const router = express.Router();
 
-    export default function handler(req: VercelRequest, res: VercelResponse) {
+    export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
         console.log("Request body:", req.body);
         console.log("Req body:", req.body);
@@ -20,7 +20,7 @@
         console.log("Fetched transcript:", transcriptText);
 
         const prompt = `Summarize the video at the following URL: ${videoUrl}. Transcript: ${transcriptText} in few words`;
-        const summary = generateText("llama3-8b-8192", prompt);
+        const summary =await generateText("llama3-8b-8192", prompt);
 
         console.log(summary);
         res.json({ summary: summary});
