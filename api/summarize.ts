@@ -22,7 +22,7 @@
         const summary = generateText("llama3-8b-8192", prompt);
 
         console.log(summary);
-        res.json({ summary: summary});
+        res.json({ summary: "Hi how are you?"});
     } catch (error) {
         console.error("Error summarizing video:", error.message);
         res.status(500).json({ error: "Failed to summarize video" });
