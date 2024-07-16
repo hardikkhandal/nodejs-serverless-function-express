@@ -21,7 +21,8 @@
         const prompt = `Summarize the video at the following URL: ${videoUrl}. Transcript: ${transcriptText} in few words`;
         const summary = generateText("llama3-8b-8192", prompt);
 
-        res.json({ summary: summary.trim() });
+        console.log(summary);
+        res.json({ summary: summary});
     } catch (error) {
         console.error("Error summarizing video:", error.message);
         res.status(500).json({ error: "Failed to summarize video" });
