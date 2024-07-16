@@ -94,7 +94,17 @@ app.post('/api/summarize', async (req: VercelRequest, res: VercelResponse) => {
     }
 
     const videoId = extractVideoId(videoUrl);
-    const transcript = await getTranscript(videoId, { timeout: 60000 });
+    // const transcript = await getTranscript(videoId, { timeout: 60000 });
+    // const transcriptText = transcript.map((entry) => entry.text).join(" ");
+    // console.log("Fetched transcript:", transcriptText);
+
+    let transcript;
+    try {
+      transcript = await getTranscript(videoId, { timeout: 60000 });
+    } catch (error) {
+      console.error("Error fetching transcript:", error.message);
+      return res.status(500).json({ error: "Failed to fetch video transcript" });
+    }
     const transcriptText = transcript.map((entry) => entry.text).join(" ");
     console.log("Fetched transcript:", transcriptText);
 
