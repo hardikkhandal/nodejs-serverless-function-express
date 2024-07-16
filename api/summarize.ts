@@ -23,7 +23,7 @@
     const summary = "This is a test summary";
 
     console.log("Generated summary:", summary);
-    res.json({ summary });
+    res.json("Working");
   } catch (error: any) {
     console.error("Error summarizing video:", error.message);
     res.status(500).json({ error: "Failed to summarize video" });
