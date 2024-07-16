@@ -10,6 +10,7 @@
     export default function handler(req: VercelRequest, res: VercelResponse) {
     try {
         console.log("Request body:", req.body);
+        console.log("Req body:", req.body);
         const { videoUrl } = req.body;
         console.log("Request received to summarize video:", videoUrl);
         const videoId = extractVideoId(videoUrl);
